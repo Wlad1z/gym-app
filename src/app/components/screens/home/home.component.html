@@ -1,13 +1,5 @@
 <div>
     <h1>Тренировки</h1>
-    <div *ngFor="let item of trainings" class="" class="training">
-        <a [routerLink]="['/training', item.title, item.id]" [name]="item.title" routerLinkActive="active">{{item.title}}</a>
-        <div class="training-btn">
-            <app-change-button></app-change-button>
-            <app-delete-button></app-delete-button>
-        </div>
-    </div>
-    <div class="add">
-        <app-add-button></app-add-button>
-    </div>
+    <app-link-training  *ngFor="let item of trainings" [item]="item"></app-link-training>
+    <app-add-button></app-add-button>
 </div>

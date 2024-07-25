@@ -1,0 +1,12 @@
+@import url("../delete-button/delete-button.component.css");
+
+button:hover *{
+    stroke: blueviolet;
+    transition: 300ms;
+    fill: none;
+}
+button svg{
+    height: 20px;
+    fill: none;
+    stroke: white;
+}

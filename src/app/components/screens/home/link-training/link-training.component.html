@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="!changeTrainingFlag" class="training">
+        <a [routerLink]="['/training', item.title, item.id]" [name]="item.title" routerLinkActive="active">{{item.title}}</a>
+        <div class="training-btn">
+            <app-change-button (click)="changeTraining(changeTrainingFlag)"></app-change-button>
+            <app-delete-button></app-delete-button>
+        </div>
+    </div>
+    <div *ngIf="changeTrainingFlag" class="training">
+        <input type="text" value="{{item.title}}">
+        <div class="training-btn">
+            <app-check-button></app-check-button>
+            <app-cancel-button (click)="changeTraining(changeTrainingFlag)"></app-cancel-button>
+        </div>
+    </div>
+</div>

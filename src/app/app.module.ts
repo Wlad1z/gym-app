@@ -9,6 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrainingComponent } from './components/screens/training/training.component';
 import { CheckboxComponent } from './components/ui/checkbox/checkbox.component';
 import { LoginModule } from './components/screens/login/login.module';
+import { ExercisComponent } from './components/screens/training/exercis/exercis.component';
+import { ExercisElementComponent } from './components/screens/training/exercis-element/exercis-element.component';
+import { ExercisChangeComponent } from './components/screens/training/exercis-change/exercis-change.component';
+
+
+
 
 
 
@@ -16,7 +22,10 @@ import { LoginModule } from './components/screens/login/login.module';
   declarations: [
     AppComponent,
     TrainingComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    ExercisComponent,
+    ExercisElementComponent,
+    ExercisChangeComponent
   ],
   imports: [
     BrowserModule,

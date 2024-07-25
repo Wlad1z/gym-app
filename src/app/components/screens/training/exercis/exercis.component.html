@@ -1,0 +1,4 @@
+<div>
+    <app-exercis-element *ngIf="!flag" [item]="item" [id]="id" [flag]="flag" (changeFlag)="updateFlag($event)"></app-exercis-element>
+    <app-exercis-change *ngIf="flag" [item]="item" [id]="id" [flag]="flag" (changeFlag)="updateFlag($event)"></app-exercis-change>
+</div>

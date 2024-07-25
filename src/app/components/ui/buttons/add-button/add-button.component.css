@@ -12,3 +12,7 @@ button svg{
 button svg:hover{
     fill: blueviolet;
 }
+.add{
+    display: flex;
+    justify-content: center;
+}

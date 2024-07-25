@@ -30,7 +30,5 @@ export class TrainingComponent {
     });
   }
 
-  createArray(length: number): number[] {
-    return new Array(length);
-  }
+  
 }

@@ -40,3 +40,10 @@ form input:focus, form input:hover{
 .btn-form:hover{
     background: linear-gradient(180deg, #775edbc7 0%, #6a46ecbf 50%, #4934a7c7 100%);
 }
+form a {
+    cursor: pointer;
+}
+form a:hover{
+    text-decoration: underline;
+    color: blueviolet
+}
