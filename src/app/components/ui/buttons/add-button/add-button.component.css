@@ -1,0 +1,14 @@
+button{
+    border: none;
+    transition: 300ms;
+    background: transparent;
+    cursor: pointer;
+}
+button svg{
+    height: 20vh;
+    fill: #F0F1F0;
+    transition: 300ms;
+}
+button svg:hover{
+    fill: blueviolet;
+}

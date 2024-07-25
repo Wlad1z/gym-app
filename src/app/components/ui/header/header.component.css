@@ -1,0 +1,21 @@
+.header-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #232231;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+}
+.header-div div a img{
+    width: 40px;
+    filter: invert(90%);
+}
+.header-div div a svg{
+    height: 40px;
+    width: 40px;
+    fill: #F0F1F0;
+    transition: 300ms;
+}
+.header-div div a svg:hover{
+    fill: blueviolet;
+}

@@ -1,0 +1,16 @@
+{
+    "users":[
+        {"id":1, "name":"Vlad", "password": "123"}
+    ],
+    "trainings": [
+        { "id": 1,"userId": 1, "title": "Грудь и трицепс"},
+        { "id": 2,"userId": 1, "title": "Плечи и бицепс"},
+        { "id": 3,"userId": 1, "title": "Спина и ноги"}
+    ],
+    "exercises": [
+        { "id": 1, "trainingID":1, "title": "Жим лежа", "weight": "85 кг", "repetition": 10, "iteration": 3},
+        { "id": 2, "trainingID":1, "title": "Тренажер 45", "weight": "50 кг", "repetition": 10, "iteration": 4},
+        { "id": 3, "trainingID":2, "title": "Жим стоя", "weight": "30 кг", "repetition": 10, "iteration": 3},
+        { "id": 4, "trainingID":3, "title": "Тяга горизонтальная", "weight": "90 кг", "repetition": 10, "iteration": 3}
+    ]
+}
