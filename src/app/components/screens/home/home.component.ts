@@ -9,7 +9,19 @@ import { TrainingService } from 'src/app/services/trainings/training.service';
 })
 export class HomeComponent {
   trainings:ITrainig[] = [];
+  flagPopUp:boolean =false;
+  trainingFlag: boolean = true;
+
+  addTraining(arg: boolean) {
+    this.flagPopUp = !arg;
+  }
+
+  updateFlagPopUp(newFlag: boolean) {
+    this.flagPopUp = newFlag;
+  }
+
   
+
   constructor(private TrainingService: TrainingService) { }
 
   ngOnInit(): void {

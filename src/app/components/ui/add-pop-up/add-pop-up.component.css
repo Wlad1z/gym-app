@@ -1,0 +1,53 @@
+.pop-up-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.389);
+}
+.pop-up{
+    background: #232231;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+h1{
+    margin-top: 0;
+}
+input{
+    display: block;
+    width: 100%;
+    outline: none;
+    padding: 8px 4px;
+    border-radius: 4px;
+    border: 1px solid #363740;
+    box-sizing: border-box;
+    background: transparent;
+    color: #F0F1F0;
+    transition: 300ms;
+    height: 35px;
+}
+input:focus, input:hover{
+    border-color: blueviolet;
+    box-shadow: 1px 0px 5px 1px blueviolet;
+}
+.exercis{
+    width: 100%;
+}
+.exercis input{
+    width: 100%;
+    margin-bottom: 4px;
+}
+.div-btn{
+    display: flex;
+    justify-content: space-between;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

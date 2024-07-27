@@ -8,6 +8,7 @@ import { ChangeButtonComponent } from '../../ui/buttons/change-button/change-but
 import { LinkTrainingComponent } from './link-training/link-training.component';
 import { CheckButtonComponent } from '../../ui/buttons/check-button/check-button.component';
 import { CancelButtonComponent } from '../../ui/buttons/cancel-button/cancel-button.component';
+import { AddPopUpComponent } from '../../ui/add-pop-up/add-pop-up.component';
 
 
 
@@ -19,7 +20,8 @@ import { CancelButtonComponent } from '../../ui/buttons/cancel-button/cancel-but
     ChangeButtonComponent,
     LinkTrainingComponent,
     CheckButtonComponent,
-    CancelButtonComponent
+    CancelButtonComponent,
+    AddPopUpComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { CancelButtonComponent } from '../../ui/buttons/cancel-button/cancel-but
     DeleteButtonComponent,
     ChangeButtonComponent,
     CheckButtonComponent,
-    CancelButtonComponent
+    CancelButtonComponent,
+    AddPopUpComponent
   ]
 })
 export class HomeModule { }

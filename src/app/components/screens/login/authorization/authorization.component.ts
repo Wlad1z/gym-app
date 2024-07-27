@@ -9,12 +9,12 @@ import { ChangeService } from 'src/app/services/change/change.service';
   styleUrls: ['./authorization.component.css']
 })
 export class AuthorizationComponent {
-  @Input() haveAcc!:boolean;
-  @Output() haveAccChange = new EventEmitter<boolean>();
+  @Input() flag!:boolean;
+  @Output() flagChange = new EventEmitter<boolean>();
 
   change(arg: boolean) {
-    this.haveAcc = !arg;
-    this.haveAccChange.emit(this.haveAcc);
+    this.flag = !arg;
+    this.flagChange.emit(this.flag);
   }
 
   authService = inject(AuthService)

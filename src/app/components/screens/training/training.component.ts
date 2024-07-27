@@ -11,6 +11,16 @@ import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 export class TrainingComponent {
   name!: string;
   id!: number;
+  flagPopUp:boolean =false;
+  trainingFlag: boolean = false;
+
+  addTraining(flag: boolean){
+    this.flagPopUp = !flag
+  }
+
+  updateFlagPopUp(newFlag: boolean) {
+    this.flagPopUp = newFlag;
+  }
 
   exercises:IExercis[] = [];
   

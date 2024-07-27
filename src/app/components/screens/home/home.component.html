@@ -1,5 +1,10 @@
 <div>
     <h1>Тренировки</h1>
     <app-link-training  *ngFor="let item of trainings" [item]="item"></app-link-training>
-    <app-add-button></app-add-button>
+    <app-add-button (click)="addTraining(flagPopUp)"></app-add-button>
 </div>
+
+<app-add-pop-up *ngIf="flagPopUp" [flag]="flagPopUp" 
+[training]="trainingFlag" 
+(haveFlag)="updateFlagPopUp($event)"
+></app-add-pop-up>

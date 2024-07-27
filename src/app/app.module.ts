@@ -18,6 +18,7 @@ import { ExercisChangeComponent } from './components/screens/training/exercis-ch
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

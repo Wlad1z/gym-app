@@ -2,5 +2,12 @@
 
 <app-exercis *ngFor="let item of exercises" [item]="item" [id]="id"></app-exercis>
 
-<app-add-button></app-add-button>
+<app-add-button (click)="addTraining(flagPopUp)"></app-add-button>
+
+<app-add-pop-up 
+  *ngIf="flagPopUp" 
+  [flag]="flagPopUp" 
+  [training]="trainingFlag" 
+  (haveFlag)="updateFlagPopUp($event)">
+</app-add-pop-up>
 

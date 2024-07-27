@@ -9,10 +9,10 @@ import { ITrainig } from 'src/app/services/trainings/training.interface';
 export class LinkTrainingComponent {
   @Input() item!:ITrainig
 
-  changeTrainingFlag: boolean = false;
+  flag: boolean = false;
 
-  changeTraining(changeTrainingFlag: boolean){
-    this.changeTrainingFlag = !changeTrainingFlag
+  changeTraining(flag: boolean){
+    this.flag = !flag
   }
 
 }

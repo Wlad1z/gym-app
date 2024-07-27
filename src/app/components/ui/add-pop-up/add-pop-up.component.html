@@ -1,0 +1,29 @@
+<div class="pop-up-wrapper">
+    <div class="pop-up" *ngIf="training">
+        <h1>Введите название тренировки</h1>
+        <div class="form">
+            <input type="text" placeholder="Название тренировки">
+            <div class="div-btn">
+                <app-check-button></app-check-button>
+                <app-cancel-button (click)="change(flag)"></app-cancel-button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pop-up" *ngIf="!training">
+        <h1>Добавьте упражнение</h1>
+        <div class="form">
+            <div class="exercis">
+                <input type="text" placeholder="Название упражнения">
+                <input type="text" placeholder="Вес">
+                <input type="text" placeholder="Подходы">
+                <input type="text" placeholder="Повторения">
+            </div>
+            <div class="div-btn">
+                <app-check-button></app-check-button>
+                <app-cancel-button (click)="change(flag)"></app-cancel-button>
+            </div>
+        </div>
+    </div>
+</div>

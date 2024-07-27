@@ -1,2 +1,2 @@
-<app-authorization *ngIf="haveAcc" [haveAcc]="haveAcc" (haveAccChange)="updateHaveAcc($event)"></app-authorization>
-<app-registration *ngIf="!haveAcc" [haveAcc]="haveAcc" (haveAccChange)="updateHaveAcc($event)"></app-registration>
+<app-authorization *ngIf="flag" [flag]="flag" (flagChange)="updateFlag($event)"></app-authorization>
+<app-registration *ngIf="!flag" [flag]="flag" (flagChange)="updateFlag($event)"></app-registration>
