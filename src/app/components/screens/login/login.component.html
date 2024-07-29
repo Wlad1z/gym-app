@@ -1,2 +1,9 @@
-<app-authorization *ngIf="flag" [flag]="flag" (flagChange)="updateFlag($event)"></app-authorization>
-<app-registration *ngIf="!flag" [flag]="flag" (flagChange)="updateFlag($event)"></app-registration>
+@if (flag) {
+    <app-authorization [flag]="flag" (flagChange)="updateFlag($event)"></app-authorization>
+} @else {
+    <app-registration [flag]="flag" (flagChange)="updateFlag($event)"></app-registration>
+}
+
+
+
+
