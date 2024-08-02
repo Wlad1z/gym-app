@@ -8,11 +8,4 @@ import { ITrainig } from 'src/app/services/trainings/training.interface';
 })
 export class LinkTrainingComponent {
   @Input() item!:ITrainig
-
-  flag: boolean = false;
-
-  changeTraining(flag: boolean){
-    this.flag = !flag
-  }
-
 }

@@ -27,7 +27,14 @@ export class AuthorizationComponent {
   onSubmit(event: Event){
     if(this.formLogin.valid){
       // @ts-ignore
-      this.authService.login(this.formLogin.vlaue)
+      this.authService.login({
+        "password": "Df123456",
+        "email": "wlados2000@mail.ru"
+      }).subscribe(response =>{
+        console.log(response)
+        console.log(this.authService.isAuthSession)
+      })
+      
     }
   }
 }

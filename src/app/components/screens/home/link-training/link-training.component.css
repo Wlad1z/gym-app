@@ -3,7 +3,7 @@
     justify-content: space-between;
     padding: 10px;
 }
-.training a, .training input{
+.training a{
     display: inline-block;
     padding: 8px 16px ;
     border: 1px solid #363740;
@@ -13,18 +13,8 @@
     color: #F0F1F0;
     text-decoration: none;
     transition: 300ms;
-    font-size: 16px;
 }
-.training input{
-    outline: none;
-    color: black;
-}
-.training a:hover, .training input:hover{
-    border-color: blueviolet;
-    box-shadow: 1px 0px 5px 1px blueviolet;
-}
-.training input:focus{
-    border: 1px solid blueviolet;
+.training a:hover{
     border-color: blueviolet;
     box-shadow: 1px 0px 5px 1px blueviolet;
 }
