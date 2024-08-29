@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service'
   	providedIn: 'root'
 })
 export class AuthService {
-	API_URL = 'http://192.168.1.43:8000/api/v1/auth'
+	API_URL = 'http://192.168.1.43:8000/api/v1/'
 
 	userID: number | null = null
 
@@ -23,20 +23,32 @@ export class AuthService {
 		return this.userID
 	}
 
-	login(payload: { username: string; password: string }) {
-		const headers: HttpHeaders = new HttpHeaders({
-		Authorization: 'Basic ' + btoa(`${payload.username}:${payload.password}`),
+	login(payload: { username: string; password: string }, url: string){
+		let headers: HttpHeaders = new HttpHeaders({
 			'Content-Type': 'application/json',
 			'Referrer-Policy': 'no-refer'
 		})
-
+		
+		if(url == "auth"){
+			headers = new HttpHeaders({
+				Authorization: 'Basic ' + btoa(`${payload.username}:${payload.password}`),
+					'Content-Type': 'application/json',
+					'Referrer-Policy': 'no-refer'
+				}
+			)
+		} 
+		
 		return this.http
-		.post<userID>(this.API_URL, payload, { headers: headers })
+		.post<userID>(this.API_URL+url, payload, { headers: headers })
 		.pipe(
 			tap(val => {
-			this.userID = val.id
-
-			this.cokieService.set('user_id', this.userID?.toString() || '')
+				if(val.id){
+					this.userID = val.id
+				} else {
+					this.userID = val.userId
+				}
+				console.log(val)
+				this.cokieService.set('user_id', this.userID?.toString() || '')
 			})
 		)
 	}
