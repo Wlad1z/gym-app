@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/auth.service';
-import { ChangeService } from 'src/app/services/change/change.service';
+import { RegService } from 'src/app/services/reg/reg.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +17,8 @@ export class RegistrationComponent {
     this.flagChange.emit(this.flag);
   }
   
-  authService = inject(AuthService)
+  regService = inject(RegService)
+  router = inject(Router)
 
   formRegistration: FormGroup<{username:any, password:any}> = new FormGroup({
     username: new FormControl(null, Validators.required),
@@ -27,7 +28,14 @@ export class RegistrationComponent {
   onSubmit(event: Event){
     if(this.formRegistration.valid){
       // @ts-ignore
-      this.authService.login(this.formRegistration.vlaue)
+      this.regService.registration(this.formRegistration.value).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['']);
+        }
+      );
+    } else {
+      alert('Пожалуйста, заполните все поля формы.');
     }
   }
 

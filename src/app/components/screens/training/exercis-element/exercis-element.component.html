@@ -1,5 +1,5 @@
 <div  class="training-body">
-    <div  *ngIf="item.trainingID === id" class="exercis">
+    <div  class="exercis">
         <div>
             <span>{{item.title}} {{item.weight}} {{item.iteration}}x{{item.repetition}}</span>
             <span>
@@ -9,7 +9,7 @@
             </span>
         </div>
     </div>
-    <div *ngIf="item.trainingID === id" class="btn-div">
+    <div  class="btn-div">
         <app-change-button (click)="change(flag)"></app-change-button>
         <app-delete-button></app-delete-button>
     </div>    

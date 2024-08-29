@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ITrainig } from 'src/app/services/trainings/training.interface';
 import { TrainingService } from 'src/app/services/trainings/training.service';
-import { dataType } from './data_type.interface';
+
 
 
 
@@ -14,6 +14,7 @@ export class HomeComponent {
   trainings:ITrainig[] = [];
   flagPopUp:boolean =false;
   trainingFlag: boolean = true;
+  
 
   addTraining(arg: boolean) {
     this.flagPopUp = !arg;
@@ -24,10 +25,12 @@ export class HomeComponent {
   }
 
   
+  
 
   constructor(private TrainingService: TrainingService) { }
 
   ngOnInit(): void {
+    
     this.TrainingService.getAll().subscribe(data => {
       this.trainings = data.trainings;
     })

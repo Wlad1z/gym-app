@@ -6,3 +6,7 @@ export interface IExercis{
     repetition: number;
     iteration: number
 }
+
+export interface IExercisData{
+    exercises: IExercis[]
+}

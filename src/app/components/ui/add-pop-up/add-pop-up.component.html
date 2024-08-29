@@ -1,13 +1,22 @@
 <div class="pop-up-wrapper">
     <div class="pop-up" *ngIf="training">
-        <h1>Введите название тренировки</h1>
-        <div class="form">
-            <input type="text" placeholder="Название тренировки">
-            <div class="div-btn">
-                <app-check-button></app-check-button>
-                <app-cancel-button (click)="change(flag)"></app-cancel-button>
-            </div>
-        </div>
+        <div class="pop-up" *ngIf="training">
+            <h1>Введите название тренировки</h1>
+            <form 
+                class="form" 
+                [formGroup]="formCreateTraining"
+                (ngSubmit)="onSubmit($event)"
+            >   
+                <input type="hidden" formControlName="userId" placeholder="ID юзера">
+                <input type="text" formControlName="title" placeholder="Название тренировки">
+                <div class="div-btn">
+                    <button type="submit">
+                        <app-check-button></app-check-button>
+                    </button>
+                    
+                    <app-cancel-button (click)="change(flag)"></app-cancel-button>
+                </div>
+            </form>
     </div>
 
 

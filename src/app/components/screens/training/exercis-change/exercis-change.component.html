@@ -1,11 +1,11 @@
 <div class="training-body">
-    <div  *ngIf="item.trainingID === id" class="exercis">
+    <div  class="exercis">
         <input type="text" value="{{item.title}}" placeholder="Название упражнения">
         <input type="text" value="{{item.weight}}" placeholder="Вес">
         <input type="text" value="{{item.iteration}}" placeholder="Подходы">
         <input type="text" value="{{item.repetition}}" placeholder="Повторения">
     </div>
-    <div *ngIf="item.trainingID === id" class="btn-div">
+    <div  class="btn-div">
         <app-check-button></app-check-button>
         <app-cancel-button (click)="change(flag)"></app-cancel-button>
     </div> 

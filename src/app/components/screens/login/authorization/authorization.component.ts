@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/auth.service';
-import { ChangeService } from 'src/app/services/change/change.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-authorization',
@@ -16,7 +16,7 @@ export class AuthorizationComponent {
     this.flag = !arg;
     this.flagChange.emit(this.flag);
   }
-
+  router = inject(Router)
   authService = inject(AuthService)
 
   formLogin: FormGroup<{username:any, password:any}> = new FormGroup({
@@ -27,12 +27,10 @@ export class AuthorizationComponent {
   onSubmit(event: Event){
     if(this.formLogin.valid){
       // @ts-ignore
-      this.authService.login({
-        "password": "Df123456",
-        "email": "wlados2000@mail.ru"
-      }).subscribe(response =>{
+      this.authService.login(this.formLogin.value).subscribe(response =>{
         console.log(response)
-        console.log(this.authService.isAuthSession)
+        console.log(this.authService.isAuthSession);
+        this.router.navigate(['']);
       })
       
     }

@@ -9,6 +9,7 @@ import { LinkTrainingComponent } from './link-training/link-training.component';
 import { CheckButtonComponent } from '../../ui/buttons/check-button/check-button.component';
 import { CancelButtonComponent } from '../../ui/buttons/cancel-button/cancel-button.component';
 import { AddPopUpComponent } from '../../ui/add-pop-up/add-pop-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { AddPopUpComponent } from '../../ui/add-pop-up/add-pop-up.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports:[
     HomeComponent,

@@ -1,6 +1,6 @@
 import { Component, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IExercis } from 'src/app/services/exercises/exercis.interface';
+import { IExercis} from 'src/app/services/exercises/exercis.interface';
 import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 
 @Component({
@@ -35,8 +35,9 @@ export class TrainingComponent {
       this.id = Number(params.get('id'));
     });
 
-    this.exercisesService.getAll().subscribe(data => {
-      this.exercises = data;
+    this.exercisesService.getAll(this.id).subscribe(data => {
+      this.exercises = data.exercises;
+      console.log(this.exercises)
     });
   }
 
