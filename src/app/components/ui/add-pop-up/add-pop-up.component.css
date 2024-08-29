@@ -45,6 +45,13 @@ input:focus, input:hover{
 .div-btn{
     display: flex;
     justify-content: space-between;
+
+    .submit{
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
 }
 .form{
     display: flex;

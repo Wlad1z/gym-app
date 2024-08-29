@@ -1,13 +1,17 @@
 <h1>{{name}}</h1>
 
-<app-exercis *ngFor="let item of exercises" [item]="item" [id]="id"></app-exercis>
+<app-exercis *ngFor="let item of exercises" [item]="item" [id]="id" ></app-exercis>
+@if (exercises.length==0) {
+  <h2>Упражнений нет</h2>
+}
 
 <app-add-button (click)="addTraining(flagPopUp)"></app-add-button>
 
 <app-add-pop-up 
   *ngIf="flagPopUp" 
   [flag]="flagPopUp" 
-  [training]="trainingFlag" 
+  [training]="trainingFlag"
+  [trainingId]="id" 
   (haveFlag)="updateFlagPopUp($event)">
 </app-add-pop-up>
 

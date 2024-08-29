@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { RefreshService } from 'src/app/services/refresh/refresh.service';
 import { ITrainig } from 'src/app/services/trainings/training.interface';
 import { TrainingService } from 'src/app/services/trainings/training.service';
 
@@ -27,12 +28,24 @@ export class HomeComponent {
   
   
 
-  constructor(private TrainingService: TrainingService) { }
+  constructor(
+    private trainingService: TrainingService,
+    private refreshService: RefreshService
+  ) {}
 
   ngOnInit(): void {
-    
-    this.TrainingService.getAll().subscribe(data => {
-      this.trainings = data.trainings;
-    })
+    this.getTrainings();
+
+    // подписываемся на обновление
+    this.refreshService.refresh$.subscribe(() => {
+      this.getTrainings(); // вызываем обновление
+    });
   }
+
+  getTrainings() {
+    this.trainingService.getAll().subscribe(data => {
+      this.trainings = data.trainings;
+    });
+  }
+
 }

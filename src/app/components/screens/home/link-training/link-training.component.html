@@ -2,6 +2,6 @@
     <a [routerLink]="['/training', item.title, item.id]" [name]="item.title" routerLinkActive="active">{{item.title}}</a>
     <div class="training-btn">
         <app-change-button></app-change-button>
-        <app-delete-button></app-delete-button>
+        <app-delete-button [id]="item.id" [userId]="userId"></app-delete-button>
     </div>
 </div>

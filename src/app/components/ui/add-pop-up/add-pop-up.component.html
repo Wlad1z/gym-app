@@ -1,7 +1,6 @@
 <div class="pop-up-wrapper">
     <div class="pop-up" *ngIf="training">
-        <div class="pop-up" *ngIf="training">
-            <h1>Введите название тренировки</h1>
+        <h1>Введите название тренировки</h1>
             <form 
                 class="form" 
                 [formGroup]="formCreateTraining"
@@ -10,7 +9,7 @@
                 <input type="hidden" formControlName="userId" placeholder="ID юзера">
                 <input type="text" formControlName="title" placeholder="Название тренировки">
                 <div class="div-btn">
-                    <button type="submit">
+                    <button class="submit" type="submit">
                         <app-check-button></app-check-button>
                     </button>
                     
@@ -22,17 +21,25 @@
 
     <div class="pop-up" *ngIf="!training">
         <h1>Добавьте упражнение</h1>
-        <div class="form">
+        <form 
+            class="form" 
+            [formGroup]="formCreateExercise"
+            (ngSubmit)="onSubmit($event)"
+        >  
             <div class="exercis">
-                <input type="text" placeholder="Название упражнения">
-                <input type="text" placeholder="Вес">
-                <input type="text" placeholder="Подходы">
-                <input type="text" placeholder="Повторения">
+                <input type="hidden" formControlName="userId">
+                <input type="hidden" formControlName="trainingId">
+                <input type="text" formControlName="title" placeholder="Название упражнения">
+                <input type="text" formControlName="weight" placeholder="Вес">
+                <input type="number" formControlName="iteration" placeholder="Подходы">
+                <input type="number" formControlName="repetition" placeholder="Повторения">
             </div>
             <div class="div-btn">
-                <app-check-button></app-check-button>
+                <button class="submit" type="submit">
+                    <app-check-button></app-check-button>
+                </button>
                 <app-cancel-button (click)="change(flag)"></app-cancel-button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
