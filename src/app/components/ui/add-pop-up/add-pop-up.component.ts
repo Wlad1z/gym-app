@@ -19,6 +19,8 @@ export class AddPopUpComponent {
     userId: number = inject(AuthService).isAuthSession;
     createService = inject(CreateService);
     refreshService = inject(RefreshService);
+    errorMessage:string = '';
+    error: boolean = false;
 
     change(arg: boolean) {
         this.flag = !arg;
@@ -29,6 +31,13 @@ export class AddPopUpComponent {
     toggleTraining() {
         this.training = !this.training
         this.trainingChange.emit(this.training)
+    }
+
+    onError(){
+        this.error = true;
+        setTimeout(() => {
+            this.error = false;
+        }, 3000);
     }
 
     formCreateTraining: FormGroup<{userId:any, title:any}> = new FormGroup({
@@ -64,6 +73,9 @@ export class AddPopUpComponent {
                 }
                 
             )
+        } else {
+            this.onError();
+            this.errorMessage = 'Заполните форму'
         }
 
         if(this.formCreateExercise.valid){

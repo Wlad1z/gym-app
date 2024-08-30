@@ -10,7 +10,11 @@ import { ITrainig } from 'src/app/services/trainings/training.interface'
 export class LinkTrainingComponent {
     @Input() item!: ITrainig
     userId: number = inject(AuthService).isAuthSession
-    flag: boolean = false
+    flag: boolean = false;
+
+    change(flag:boolean){
+        this.flag = !flag;
+    }
 
     updateFlag(newValue: boolean) {
         this.flag = newValue

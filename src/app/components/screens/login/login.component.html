@@ -6,16 +6,19 @@
     <h1>@if (flag) {Вход} @else {Регистрация}</h1>
     <label for="username">
         Логин
-        <input id="username" formControlName="username" type="text" placeholder="Введите логин">
+        <input [ngClass]="{'error': error}"  id="username" formControlName="username" type="text" placeholder="Введите логин">
     </label>
     <br>
     <label for="password">
         Пароль
-        <input id="password" formControlName="password" type="password" placeholder="Введите Пароль">
+        <input [ngClass]="{'error': error}" id="password" formControlName="password" type="password" placeholder="Введите Пароль">
     </label>
     <br>
     <button class="btn-form" type="submit" ><span>@if (flag) {Войти} @else {Зарегестрироваться}</span></button>
-    <br>
+    <div>
+        <br>
+        {{ errorMessage }}
+    </div>
     <br>
     <a (click)="change(flag)">@if (flag) {Нет аккаунта? Зарегистрироваться.} @else {Есть аккаунт? Войти.}</a>
 </form>

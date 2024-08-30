@@ -20,6 +20,10 @@ form input{
     margin-top: 4px;
     transition: 300ms;
 }
+form input.error{
+    border-color: rgb(208, 1, 1);
+    box-shadow: 1px 0px 5px 1px rgb(208, 1, 1);
+}
 form input:focus, form input:hover{
     border-color: blueviolet;
     box-shadow: 1px 0px 5px 1px blueviolet;

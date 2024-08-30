@@ -6,16 +6,20 @@
                 [formGroup]="formCreateTraining"
                 (ngSubmit)="onSubmit($event)"
             >   
-                <input type="hidden" formControlName="userId" placeholder="ID юзера">
-                <input type="text" formControlName="title" placeholder="Название тренировки">
+                <input [ngClass]="{'error': error}" type="hidden" formControlName="userId" placeholder="ID юзера">
+                <input [ngClass]="{'error': error}" type="text" formControlName="title" placeholder="Название тренировки">
                 <div class="div-btn">
                     <button class="submit" type="submit">
                         <app-check-button></app-check-button>
                     </button>
-                    
                     <app-cancel-button (click)="change(flag)"></app-cancel-button>
                 </div>
+                
             </form>
+            <div class="errorMessage">
+                <br>
+                {{errorMessage}}
+            </div>
     </div>
 
 
@@ -27,12 +31,12 @@
             (ngSubmit)="onSubmit($event)"
         >  
             <div class="exercis">
-                <input type="hidden" formControlName="userId">
-                <input type="hidden" formControlName="trainingId">
-                <input type="text" formControlName="title" placeholder="Название упражнения">
-                <input type="text" formControlName="weight" placeholder="Вес">
-                <input type="number" formControlName="iteration" placeholder="Подходы">
-                <input type="number" formControlName="repetition" placeholder="Повторения">
+                <input [ngClass]="{'error': error}" type="hidden" formControlName="userId">
+                <input [ngClass]="{'error': error}" type="hidden" formControlName="trainingId">
+                <input [ngClass]="{'error': error}" type="text" formControlName="title" placeholder="Название упражнения">
+                <input [ngClass]="{'error': error}" type="text" formControlName="weight" placeholder="Вес">
+                <input [ngClass]="{'error': error}" type="number" formControlName="iteration" placeholder="Подходы">
+                <input [ngClass]="{'error': error}" type="number" formControlName="repetition" placeholder="Повторения">
             </div>
             <div class="div-btn">
                 <button class="submit" type="submit">
@@ -40,6 +44,11 @@
                 </button>
                 <app-cancel-button (click)="change(flag)"></app-cancel-button>
             </div>
+            
         </form>
+        <div class="errorMessage">
+            <br>
+            {{errorMessage}}
+        </div>
     </div>
 </div>

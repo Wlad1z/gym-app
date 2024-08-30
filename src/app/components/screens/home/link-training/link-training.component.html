@@ -1,7 +1,16 @@
 <div class="training">
-    <a [routerLink]="['/training', item.title, item.id]" [name]="item.title" routerLinkActive="active">{{item.title}}</a>
-    <div class="training-btn">
-        <app-change-button></app-change-button>
-        <app-delete-button [id]="item.id" [userId]="userId"></app-delete-button>
-    </div>
+    @if (flag) {
+        <input type="text" value="{{item.title}}">
+        <div class="training-btn">
+            <app-check-button></app-check-button>
+            <app-cancel-button (click)="change(flag)"></app-cancel-button>
+        </div>
+    } @else {
+        <a [routerLink]="['/training', item.title, item.id]" [name]="item.title" routerLinkActive="active">{{item.title}}</a>
+        <div class="training-btn">
+            <app-change-button (click)="change(flag)"></app-change-button>
+            <app-delete-button [id]="item.id" [userId]="userId"></app-delete-button>
+        </div>
+    }
+    
 </div>
