@@ -25,7 +25,6 @@ export class AddPopUpComponent {
     change(arg: boolean) {
         this.flag = !arg;
         this.haveFlag.emit(this.flag);
-        console.log(typeof(this.trainingId) )
     }
 
     toggleTraining() {
@@ -51,9 +50,20 @@ export class AddPopUpComponent {
         title: new FormControl(null, Validators.required),
         weight: new FormControl(null, Validators.required),
         repetition: new FormControl(null, Validators.required),
-        iteration: new FormControl(null, Validators.required)
+        iteration: new FormControl(null, [Validators.required, Validators.max(5)])
         
     })
+
+    constructor() {
+        // Подписка на изменения поля repetition
+        this.formCreateExercise.get('iteration')?.valueChanges.subscribe(value => {
+            const numberValue = value as number;
+
+            if (numberValue > 5) {
+              this.formCreateExercise.get('iteration')?.setValue(5, { emitEvent: false });
+            }
+        });
+    }
 
     ngOnInit() {
         this.formCreateExercise.patchValue({
@@ -73,10 +83,11 @@ export class AddPopUpComponent {
                 }
                 
             )
-        } else {
-            this.onError();
-            this.errorMessage = 'Заполните форму'
-        }
+        } 
+        // else {
+        //     this.onError();
+        //     this.errorMessage = 'Заполните форму'
+        // }
 
         if(this.formCreateExercise.valid){
             // @ts-ignore

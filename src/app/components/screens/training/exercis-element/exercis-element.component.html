@@ -2,15 +2,15 @@
     <div  class="exercis">
         <div>
             <span>{{item.title}} {{item.weight}} {{item.iteration}}x{{item.repetition}}</span>
-            <!-- <span>
+            <span>
                 <app-checkbox *ngFor="let i of createArray(item.iteration); let index = index" 
                     [name]="item.id + '-' + (index + 1)">
                 </app-checkbox>
-            </span> -->
+            </span>
         </div>
     </div>
     <div  class="btn-div">
         <app-change-button (click)="change(flag)"></app-change-button>
-        <app-delete-button></app-delete-button>
+        <app-delete-button [id]="item.id" [userId]="userId" [url]="'excercise'"></app-delete-button>
     </div>    
 </div>

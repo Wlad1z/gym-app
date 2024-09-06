@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { IExercis } from 'src/app/services/exercises/exercis.interface';
 
 @Component({
@@ -11,6 +12,8 @@ export class ExercisElementComponent {
   @Input() id!: number;
   @Input() flag!: boolean;
   @Output() changeFlag = new EventEmitter<boolean>();
+
+  userId: number = inject(AuthService).isAuthSession
 
   change(arg: boolean) {
     this.flag = !arg;

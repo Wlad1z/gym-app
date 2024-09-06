@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, output, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IExercis} from 'src/app/services/exercises/exercis.interface';
 import { ExercisesService } from 'src/app/services/exercises/exercises.service';

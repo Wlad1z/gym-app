@@ -12,6 +12,7 @@ import { LoginModule } from './components/screens/login/login.module';
 import { ExercisComponent } from './components/screens/training/exercis/exercis.component';
 import { ExercisElementComponent } from './components/screens/training/exercis-element/exercis-element.component';
 import { ExercisChangeComponent } from './components/screens/training/exercis-change/exercis-change.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -26,6 +27,7 @@ import { ExercisChangeComponent } from './components/screens/training/exercis-ch
         AppRoutingModule,
         HomeModule,
         HeaderModule,
-        LoginModule], 
+        LoginModule,
+        ReactiveFormsModule], 
     providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

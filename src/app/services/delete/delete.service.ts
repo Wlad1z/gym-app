@@ -11,23 +11,13 @@ export class DeleteTrainingService {
 
     constructor(private http: HttpClient) { }
 
-    deleteTraining(payload: { userId: number; id: number }) {
-        const API_URL = 'http://192.168.1.43:8000/api/v1/training/delete';
+    delete(payload: { userId: number; id: number }, url:string) {
+        const API_URL = `http://192.168.1.43:8000/api/v1/${url}/delete`;
 
-        return this.http.post<userID>(API_URL, payload).pipe(
-        tap(val => {
-            console.log(val);
-        })
-        )
-    }
-
-    deleteExercise(payload: { userId: number; id: number }) {
-        const API_URL = 'http://192.168.1.43:8000/api/v1/exercise/delete';
-
-        return this.http.post<userID>(API_URL, payload).pipe(
-        tap(val => {
-            console.log(val);
-        })
+        return this.http.delete<userID>(API_URL, {body: payload}).pipe(
+            tap(val => {
+                console.log(val);
+            })
         )
     }
 }

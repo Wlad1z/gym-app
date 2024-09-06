@@ -22,7 +22,7 @@ export class CreateService {
         )
     }
 
-    createExercise(payload: { userId: number; title: string }) {
+    createExercise(payload: { id: number; title:string; weight: string; repetition: number; iteration: number; userId: number;}) {
         const API_URL = 'http://192.168.1.43:8000/api/v1/exercise/create';
 
         return this.http.post<IExercis>(API_URL, payload).pipe(

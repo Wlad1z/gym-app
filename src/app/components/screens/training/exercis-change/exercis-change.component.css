@@ -28,7 +28,7 @@ input:focus, input:hover{
     border-color: blueviolet;
     box-shadow: 1px 0px 5px 1px blueviolet;
 }
-.exercis div{
+.exercis form{
     display: flex;
     justify-content: space-between;
 }
@@ -36,4 +36,10 @@ input:focus, input:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+button[type=submit]{
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
