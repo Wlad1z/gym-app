@@ -3,12 +3,13 @@ import { inject, Injectable } from '@angular/core'
 import { tap } from 'rxjs'
 import { userID } from './auth.user.id.interface'
 import { CookieService } from 'ngx-cookie-service'
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   	providedIn: 'root'
 })
 export class AuthService {
-	API_URL = 'http://192.168.1.43:8000/api/v1/'
+	API_URL = environment.apiUrl
 
 	userID: number | null = null
 
@@ -28,7 +29,7 @@ export class AuthService {
 			'Content-Type': 'application/json',
 			'Referrer-Policy': 'no-refer'
 		})
-		
+
 		if(url == "auth"){
 			headers = new HttpHeaders({
 				Authorization: 'Basic ' + btoa(`${payload.username}:${payload.password}`),
@@ -36,10 +37,10 @@ export class AuthService {
 					'Referrer-Policy': 'no-refer'
 				}
 			)
-		} 
-		
+		}
+
 		return this.http
-		.post<userID>(this.API_URL+url, payload, { headers: headers })
+		.post<userID>(this.API_URL+'/'+url, payload, { headers: headers })
 		.pipe(
 			tap(val => {
 				if(val.id){

@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { IExercis, IExercisData } from './exercis.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,14 @@ import { tap } from 'rxjs';
 export class ExercisesService {
 
   cokieService = inject(CookieService)
-  
+
   constructor(private http: HttpClient) { }
 
   getAll(trainingId: number){
     const userId = Number(this.cokieService.get('user_id'));
-    let API_URL = `http://192.168.1.43:8000/api/v1/exercise/list?userId=${userId}&trainingId=${trainingId}`
-    return this.http.get<IExercisData >(API_URL).pipe(
+    const url = `${environment.apiUrl}/exercise/list?userId=${userId}&trainingId=${trainingId}`
+
+    return this.http.get<IExercisData>(url).pipe(
       tap(val =>{
         console.log(val)
       })

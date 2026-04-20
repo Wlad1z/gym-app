@@ -1,2 +1,2 @@
-<input type="checkbox" id="{{name}}">
+<input type="checkbox" id="{{name}}" [checked]="isChecked" (change)="onCheckboxChange($event)">
 <label for="{{name}}"></label>

@@ -83,13 +83,7 @@ export class AddPopUpComponent {
                 }
                 
             )
-        } 
-        // else {
-        //     this.onError();
-        //     this.errorMessage = 'Заполните форму'
-        // }
-
-        if(this.formCreateExercise.valid){
+        } else if(this.formCreateExercise.valid){
             // @ts-ignore
             this.createService.createExercise(this.formCreateExercise.value).subscribe(
                 response => {
@@ -99,6 +93,9 @@ export class AddPopUpComponent {
                 }
                 
             )
+        } else {
+            this.onError();
+            this.errorMessage = 'Заполните форму'
         }
     }
 

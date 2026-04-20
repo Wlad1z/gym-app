@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { dataType} from './training.interface';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,10 @@ export class TrainingService {
   authService = inject(AuthService)
 
   getAll(){
-    
-    let userID: number | null = this.authService.isAuthSession
+    const userID = this.authService.isAuthSession
+    const url = `${environment.apiUrl}/training/list?userId=${userID}`
 
-    let API_URL = `http://192.168.1.43:8000/api/v1/training/list?userId=${userID}`
-
-    return this.http.get<dataType>(API_URL).pipe(
+    return this.http.get<dataType>(url).pipe(
       tap(val =>{
         console.log(val)
       })
