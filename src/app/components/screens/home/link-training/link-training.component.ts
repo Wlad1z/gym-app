@@ -41,7 +41,6 @@ export class LinkTrainingComponent {
         if(this.formUpdate.valid){
             this.updateSevice.updateTraining({userId: this.userId, id: this.item.id, title: title }).subscribe(
                 response => {
-                    console.log(response);
                     this.refreshService.triggerRefresh();
                 }
             )

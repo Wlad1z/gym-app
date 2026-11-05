@@ -44,8 +44,6 @@ export class LoginComponent {
         if(this.formLogin.valid){
             // @ts-ignore
             this.authService.login(this.formLogin.value, this.url).subscribe(response =>{
-                console.log(response)
-                console.log(this.authService.isAuthSession);
                 this.router.navigate(['']);
             }, error =>{
                 if(error.status == 401){

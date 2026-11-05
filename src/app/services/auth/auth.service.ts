@@ -48,8 +48,7 @@ export class AuthService {
 				} else {
 					this.userID = val.userId
 				}
-				console.log(val)
-				this.cokieService.set('user_id', this.userID?.toString() || '')
+this.cokieService.set('user_id', this.userID?.toString() || '')
 			})
 		)
 	}

@@ -59,7 +59,6 @@ export class ExercisChangeComponent {
             // @ts-ignore
             this.updateService.updateExercise(this.formUpdate.value).subscribe(
                 response => {
-                    console.log(response);
                     this.refreshService.triggerRefresh();
                 }
             )

@@ -19,7 +19,6 @@ export class DeleteButtonComponent {
   delete(){
     this.deleteTraining.delete({userId: this.userId, id: this.id}, this.url).subscribe(
       response => {
-          console.log(response);
           this.refreshService.triggerRefresh();
       }
     )

@@ -1,6 +1,7 @@
-import { Component, output, Output } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { IExercis} from 'src/app/services/exercises/exercis.interface';
+import { IExercis } from 'src/app/services/exercises/exercis.interface';
 import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 import { RefreshService } from 'src/app/services/refresh/refresh.service';
 
@@ -9,27 +10,27 @@ import { RefreshService } from 'src/app/services/refresh/refresh.service';
   templateUrl: './training.component.html',
   styleUrls: ['./training.component.css']
 })
-export class TrainingComponent {
+export class TrainingComponent implements OnDestroy {
   name!: string;
   id!: number;
-  flagPopUp:boolean =false;
+  flagPopUp: boolean = false;
   trainingFlag: boolean = false;
+  exercises: IExercis[] = [];
+  private refreshSub!: Subscription;
 
-  addTraining(flag: boolean){
-    this.flagPopUp = !flag
+  addTraining(flag: boolean) {
+    this.flagPopUp = !flag;
   }
 
   updateFlagPopUp(newFlag: boolean) {
     this.flagPopUp = newFlag;
   }
 
-  exercises:IExercis[] = [];
-  
   constructor(
     private exercisesService: ExercisesService,
     private route: ActivatedRoute,
     private refreshService: RefreshService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,20 +39,18 @@ export class TrainingComponent {
     });
 
     this.getExercises();
-
-    // подписываемся на обновление
-    this.refreshService.refresh$.subscribe(() => {
-      this.getExercises(); // вызываем обновление
+    this.refreshSub = this.refreshService.refresh$.subscribe(() => {
+      this.getExercises();
     });
-    
   }
 
-  getExercises(){
+  ngOnDestroy(): void {
+    this.refreshSub?.unsubscribe();
+  }
+
+  getExercises() {
     this.exercisesService.getAll(this.id).subscribe(data => {
       this.exercises = data.exercises;
-      console.log(this.exercises)
     });
   }
-
-  
 }

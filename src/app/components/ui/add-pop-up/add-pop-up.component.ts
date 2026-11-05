@@ -77,17 +77,15 @@ export class AddPopUpComponent {
             // @ts-ignore
             this.createService.createTraining(this.formCreateTraining.value).subscribe(
                 response => {
-                    console.log(response);
                     this.change(this.flag)
                     this.refreshService.triggerRefresh();
                 }
-                
+
             )
         } else if(this.formCreateExercise.valid){
             // @ts-ignore
             this.createService.createExercise(this.formCreateExercise.value).subscribe(
                 response => {
-                    console.log(response);
                     this.change(this.flag)
                     this.refreshService.triggerRefresh();
                 }
